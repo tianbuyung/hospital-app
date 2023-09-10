@@ -1,0 +1,56 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doctors",
+  "info": {
+    "singularName": "doctor",
+    "pluralName": "doctors",
+    "displayName": "Doctor"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ],
+      "required": true
+    },
+    "imageUrl": {
+      "type": "string"
+    },
+    "hospitals": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::hospital.hospital",
+      "mappedBy": "doctors"
+    },
+    "specialization": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::specialization.specialization",
+      "inversedBy": "doctors"
+    },
+    "subSpecialization": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sub-specialization.sub-specialization",
+      "inversedBy": "doctors"
+    }
+  }
+}
