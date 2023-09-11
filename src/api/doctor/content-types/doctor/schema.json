@@ -51,6 +51,12 @@
       "relation": "manyToOne",
       "target": "api::sub-specialization.sub-specialization",
       "inversedBy": "doctors"
+    },
+    "workingDays": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::working-day.working-day",
+      "mappedBy": "doctor"
     }
   }
 }
