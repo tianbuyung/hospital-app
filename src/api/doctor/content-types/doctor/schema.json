@@ -4,7 +4,8 @@
   "info": {
     "singularName": "doctor",
     "pluralName": "doctors",
-    "displayName": "Doctor"
+    "displayName": "Doctor",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -31,8 +32,17 @@
       ],
       "required": true
     },
-    "imageUrl": {
-      "type": "string"
+    "doctorImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "telemedicine": {
+      "type": "boolean",
+      "default": true,
+      "required": true
     },
     "hospitals": {
       "type": "relation",
