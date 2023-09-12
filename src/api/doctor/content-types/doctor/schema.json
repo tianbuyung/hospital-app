@@ -67,6 +67,12 @@
       "relation": "oneToMany",
       "target": "api::working-day.working-day",
       "mappedBy": "doctor"
+    },
+    "booking": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::booking.booking",
+      "mappedBy": "doctor"
     }
   }
 }

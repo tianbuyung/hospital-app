@@ -71,6 +71,12 @@
       "relation": "oneToOne",
       "target": "api::user-detail.user-detail",
       "mappedBy": "user"
+    },
+    "bookings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::booking.booking",
+      "mappedBy": "user"
     }
   }
 }
