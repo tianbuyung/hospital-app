@@ -1,0 +1,83 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_details",
+  "info": {
+    "singularName": "user-detail",
+    "pluralName": "user-details",
+    "displayName": "User Detail"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "nationalIdentityCardNumber": {
+      "type": "uid",
+      "required": true
+    },
+    "nationalIdentityCardImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "phoneNumber": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ],
+      "required": true
+    },
+    "placeOfBirth": {
+      "type": "string",
+      "required": true
+    },
+    "dateOfBirth": {
+      "type": "string",
+      "required": true
+    },
+    "nationality": {
+      "type": "string"
+    },
+    "education": {
+      "type": "string"
+    },
+    "religion": {
+      "type": "string"
+    },
+    "mariageStatus": {
+      "type": "string"
+    },
+    "occupation": {
+      "type": "string"
+    },
+    "bloodType": {
+      "type": "enumeration",
+      "enum": [
+        "A",
+        "B",
+        "AB",
+        "O"
+      ]
+    },
+    "rhesus": {
+      "type": "enumeration",
+      "enum": [
+        "positive",
+        "negative"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "userDetail"
+    }
+  }
+}

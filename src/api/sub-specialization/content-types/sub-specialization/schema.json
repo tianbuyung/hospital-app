@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_specializations",
+  "info": {
+    "singularName": "sub-specialization",
+    "pluralName": "sub-specializations",
+    "displayName": "Sub Specialization",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "hospitals": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::hospital.hospital",
+      "inversedBy": "subSpecializations"
+    },
+    "specialization": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::specialization.specialization",
+      "inversedBy": "subSpecializations"
+    },
+    "doctors": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::doctor.doctor",
+      "mappedBy": "subSpecialization"
+    }
+  }
+}
