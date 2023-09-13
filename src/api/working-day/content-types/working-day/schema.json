@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "working_days",
+  "info": {
+    "singularName": "working-day",
+    "pluralName": "working-days",
+    "displayName": "Working Day",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "days": {
+      "type": "enumeration",
+      "enum": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday"
+      ],
+      "required": true
+    },
+    "shift": {
+      "type": "integer",
+      "required": true
+    },
+    "startShift": {
+      "type": "time",
+      "required": true
+    },
+    "endShift": {
+      "type": "time",
+      "required": true
+    },
+    "practiceDuration": {
+      "type": "integer",
+      "required": true,
+      "min": 1
+    },
+    "doctor": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::doctor.doctor",
+      "inversedBy": "workingDays"
+    }
+  }
+}

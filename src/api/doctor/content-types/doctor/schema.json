@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "doctors",
+  "info": {
+    "singularName": "doctor",
+    "pluralName": "doctors",
+    "displayName": "Doctor",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": true
+    },
+    "lastName": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "gender": {
+      "type": "enumeration",
+      "enum": [
+        "male",
+        "female"
+      ],
+      "required": true
+    },
+    "doctorImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "telemedicine": {
+      "type": "boolean",
+      "default": true,
+      "required": true
+    },
+    "hospitals": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::hospital.hospital",
+      "mappedBy": "doctors"
+    },
+    "specialization": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::specialization.specialization",
+      "inversedBy": "doctors"
+    },
+    "subSpecialization": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::sub-specialization.sub-specialization",
+      "inversedBy": "doctors"
+    },
+    "workingDays": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::working-day.working-day",
+      "mappedBy": "doctor"
+    },
+    "booking": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::booking.booking",
+      "mappedBy": "doctor"
+    }
+  }
+}
